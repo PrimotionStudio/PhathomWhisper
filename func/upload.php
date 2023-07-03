@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if ($error == 0) {
     
-            $insertmsg = "INSERT INTO messages (ip, token, file) VALUES ('$ip', '$token', '$file')";
+            $insertmsg = "INSERT INTO messages (ip, token, chatid, file) VALUES ('$ip', '$token', '$chatid', '$file')";
             mysqli_query($con, $insertmsg);
         }
     } else {

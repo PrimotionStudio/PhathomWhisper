@@ -12,7 +12,7 @@ function truncate_text($text)
     return $text;
 }
 
-$selectmsg = "SELECT * FROM messages WHERE deleted!='true' ORDER BY id DESC";
+$selectmsg = "SELECT * FROM messages WHERE deleted!='true' AND chatid='$chatid' ORDER BY id DESC";
 $querymsg = mysqli_query($con, $selectmsg);
 
 while ($msgarr = mysqli_fetch_assoc($querymsg)) {
@@ -31,7 +31,7 @@ while ($msgarr = mysqli_fetch_assoc($querymsg)) {
                         <?php
                         if ($msgarr["replyto"] != "") {
 
-                            $selectrep = "SELECT * FROM messages WHERE id='" . $msgarr["replyto"] . "' ORDER BY id ASC";
+                            $selectrep = "SELECT * FROM messages WHERE id='" . $msgarr["replyto"] . "' AND chatid='$chatid' ORDER BY id ASC";
                             $queryrep = mysqli_query($con, $selectrep);
 
                             while ($rep = mysqli_fetch_assoc($queryrep)) {

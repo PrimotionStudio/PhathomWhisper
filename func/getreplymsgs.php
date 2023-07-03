@@ -10,7 +10,7 @@ function truncate_text($text)
     }
     return $text;
 }
-$selectmsg = "SELECT * FROM messages WHERE deleted!='true' ORDER BY id DESC";
+$selectmsg = "SELECT * FROM messages WHERE deleted!='true' AND chatid='$chatid' ORDER BY id DESC";
 $querymsg = mysqli_query($con, $selectmsg);
 while ($msgarr = mysqli_fetch_assoc($querymsg)) {
 ?>

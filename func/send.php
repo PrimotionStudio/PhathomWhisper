@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $form_token = $_POST["token"];
     if ($token == $form_token) {
         $msg = htmlspecialchars(str_replace("`", "\`", (str_replace("'", "\'", stripslashes(trim($_POST["msgtxt"]))))));
-        $insertmsg = "INSERT INTO messages (ip, token, message) VALUES ('$ip', '$token', '$msg')";
+        $insertmsg = "INSERT INTO messages (ip, token, chatid, message) VALUES ('$ip', '$token', '$chatid', '$msg')";
         if (mysqli_query($con, $insertmsg)) {
             echo "Message Sent";
         } else {
