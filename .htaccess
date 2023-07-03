@@ -1,0 +1,28 @@
+# RewriteEngine On
+
+# # Exclude existing files or directories from rewriting
+# RewriteCond %{REQUEST_FILENAME} -d [OR]
+# RewriteCond %{REQUEST_FILENAME} -f
+# RewriteRule ^ - [L]
+
+# # Rewrite chat URLs
+# RewriteRule ^chat/([^/]+)$ ?chat=$1 [NC,L]
+
+# # Rewrite non-existing URLs to PHP files
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# # Rewrite static file paths
+# RewriteRule ^chat/assets/([^\.]+)$ assets/$1 [NC,L]
+# RewriteRule ^func/([^\.]+)$ pop/func/$1 [NC,L]
+# RewriteRule ^chat/uploads/([^\.]+)$ uploads/$1 [NC,L]
+# RewriteRule ^chat/partials/([^\.]+)$ partials/$1 [NC,L]
+# RewriteRule ^chat/fonts/([^\.]+)$ fonts/$1 [NC,L]
+    
+
+
+RewriteEngine On
+RewriteRule ^([^\.]+)$ $1.php [NC]
+# RewriteRule ^([^/]+)$ index.php?chat=$1 [NC]
+# RewriteRule ^chat/assets/([^/]+)$ /assets/$1 [NC]
+# RewriteRule ^([^/]+/)?chat/assets/([^/]+)$ /$2 [NC]
