@@ -5,6 +5,9 @@ require_once("validate_login.php");
 require_once("../partials/ip.php");
 require_once("../partials/token.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_SESSION["chat"])) {
+        $chatid = $_SESSION["chat"];
+    }
     $msgid = $_POST["msgid"];
     $form_token = $_POST["token"];
     if ($token == $form_token) {

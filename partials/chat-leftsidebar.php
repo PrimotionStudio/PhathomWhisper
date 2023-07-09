@@ -63,7 +63,7 @@
 
                                             <div class="mb-3">
                                                 <label class="form-label">Bio:</label>
-                                                <textarea id="bio" cols="30" rows="3" class="form-control form-control-lg bg-light border-light" placeholder="Enter Your Phone Number" id="phone" aria-label="Enter Your Phone Number" aria-describedby="basic-addon5"><?= $getuser["bio"] ?></textarea>
+                                                <textarea id="bio" cols="30" rows="3" class="form-control form-control-lg bg-light border-light" placeholder="Enter A Short Bio" aria-label="Enter A Short Bio" aria-describedby="basic-addon5"><?= $getuser["bio"] ?></textarea>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Chat Link:</label>

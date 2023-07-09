@@ -21,6 +21,9 @@ function getuser($chat, $con) {
     }
     return $getuser["name"];
 }
+if (isset($_SESSION["chat"])) {
+    $chatid = $_SESSION["chat"];
+}
 $selectmsg = "SELECT * FROM messages WHERE deleted != 'true' AND chatid='$chatid' ORDER BY id ASC";
 $querymsg = mysqli_query($con, $selectmsg);
 

@@ -8,6 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $form_token = $_POST["token"];
     if ($token == $form_token) {
         $error = 0;
+        if (isset($_SESSION["chat"])) {
+            $chatid = $_SESSION["chat"];
+        }
         if ($_FILES['media']["name"] != "") {
             $file_name = $_FILES['media']['name'];
             $file_size = $_FILES['media']['size'];

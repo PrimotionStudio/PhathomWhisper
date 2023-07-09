@@ -2,6 +2,7 @@
 require_once("../partials/session.php");
 require_once("../partials/sql.php");
 require_once("validate_login.php");
+require_once("../partials/ip.php");
 require_once("../partials/token.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $msgid = $_POST["msgid"];
@@ -10,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $deletemsg = "UPDATE messages SET deleted='true' WHERE ip='$ip' && id='$msgid'";
         mysqli_query($con, $deletemsg);
     } else {
-        echo "Message Not Sent";
+        echo "Message Not Deleted";
     }
 }
 header("location: ".$_SERVER["HTTP_REFERER"]);

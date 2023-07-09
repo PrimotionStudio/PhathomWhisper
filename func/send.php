@@ -6,6 +6,9 @@ require_once("../partials/ip.php");
 require_once("../partials/token.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $form_token = $_POST["token"];
+    if (isset($_SESSION["chat"])) {
+        $chatid = $_SESSION["chat"];
+    }
     if ($token == $form_token) {
         $msg = htmlspecialchars(str_replace("`", "\`", (str_replace("'", "\'", stripslashes(trim($_POST["msgtxt"]))))));
         $insertmsg = "INSERT INTO messages (ip, token, chatid, message) VALUES ('$ip', '$token', '$chatid', '$msg')";

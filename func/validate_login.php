@@ -28,7 +28,7 @@ if (isset($_SESSION["userid"]) && isset($_SESSION["loginkey"])) {
     if (mysqli_num_rows($queryuser) > 0) {
         $getuser = mysqli_fetch_assoc($queryuser);
         $chatid = $getuser["chatid"];
-        
+        $_SESSION["chat"] = $chatid;
         if ($loginkey !== $getuser["loginkey"]) {
             parselocation(parselocation2());
         }
@@ -45,7 +45,7 @@ if (isset($_SESSION["userid"]) && isset($_SESSION["loginkey"])) {
             parselocation(parselocation2());
         }
         $chatid = $_GET["chat"];
-        $_SESSION["chat"] = $_GET["chat"];
+        $_SESSION["chat"] = $chatid;
     } else {
         parselocation(parselocation2());
     }
@@ -56,6 +56,7 @@ if (isset($_SESSION["userid"]) && isset($_SESSION["loginkey"])) {
     if (mysqli_num_rows($queryuser) > 0) {
         $getuser = mysqli_fetch_assoc($queryuser);
         $chatid = $_POST["chat"];
+        $_SESSION["chat"] = $chatid;
     } else {
         parselocation(parselocation2());
     }
